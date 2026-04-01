@@ -39,7 +39,7 @@ git pull
 
 ### Option 2 — Manual download
 
-1. Download the ZIP from [github.com/K3nzie/ComfyUI-PowerMETADATA](https://github.com/K3nzie/ComfyUI-PowerMETADATA)
+1. Go to the [Releases page](https://github.com/K3nzie/ComfyUI-PowerMETADATA/releases) and download the ZIP from the latest release
 2. Extract and copy the folder into:
    ```
    ComfyUI/custom_nodes/ComfyUI_PowerMETADATA/
