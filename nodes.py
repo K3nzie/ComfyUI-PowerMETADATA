@@ -146,15 +146,12 @@ def _build_exif(device_profile: dict, location: dict, scene_profile: dict, radiu
     return piexif.dump({"0th": zeroth, "Exif": exif_ifd, "GPS": gps_ifd})
 
 
-def _inject_single(tensor_frame, device_profile, location, scene_profile, radius_m, quality=95):
-    """Inject EXIF into a single [H, W, C] tensor frame. Returns a PIL Image."""
+def _inject_single(tensor_frame, device_profile, location, scene_profile, radius_m):
+    """Convert a single [H, W, C] tensor frame to PIL RGB. Returns (pil_img, exif_bytes)."""
     arr = (tensor_frame.cpu().numpy() * 255).clip(0, 255).astype(np.uint8)
     pil_img = Image.fromarray(arr).convert("RGB")
     exif_bytes = _build_exif(device_profile, location, scene_profile, radius_m)
-    buf = io.BytesIO()
-    pil_img.save(buf, format="JPEG", exif=exif_bytes, quality=quality)
-    buf.seek(0)
-    return Image.open(buf).copy()
+    return pil_img, exif_bytes
 
 
 def _pil_to_tensor(img: Image.Image):
@@ -242,8 +239,11 @@ class MetadataInjector:
         import torch
         frames = []
         for i in range(image.shape[0]):
-            pil = _inject_single(image[i], device_profile, gps_location, scene_profile, gps_radius_m)
-            frames.append(_pil_to_tensor(pil))
+            pil, exif_bytes = _inject_single(image[i], device_profile, gps_location, scene_profile, gps_radius_m)
+            buf = io.BytesIO()
+            pil.save(buf, format="JPEG", exif=exif_bytes, quality=95)
+            buf.seek(0)
+            frames.append(_pil_to_tensor(Image.open(buf)))
         return (torch.stack(frames),)   # [B, H, W, C]
 
 
@@ -293,12 +293,12 @@ class SynthesizeAndSave:
         ts_base = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
         for i in range(batch_size):
-            pil_img = _inject_single(image[i], device_profile, gps_location, scene_profile, gps_radius_m, quality)
+            pil_img, exif_bytes = _inject_single(image[i], device_profile, gps_location, scene_profile, gps_radius_m)
             # Append index only when batch > 1 to keep single-image filenames clean
             suffix = f"_{i+1:03d}" if batch_size > 1 else ""
             filename = f"{filename_prefix}_{ts_base}{suffix}.jpg"
             out_path = os.path.join(output_dir, filename)
-            pil_img.save(out_path, format="JPEG", quality=quality)
+            pil_img.save(out_path, format="JPEG", exif=exif_bytes, quality=quality)
             print(f"[Power METADATA] Saved ({i+1}/{batch_size}): {out_path}")
 
         return {}
