@@ -1,0 +1,362 @@
+{
+  "\ud83c\udf1e Outdoor - Bright Daylight": {
+    "iso_range": [
+      50,
+      100
+    ],
+    "shutter_range": [
+      0.001,
+      0.002
+    ],
+    "fnumber_range": [
+      1.8,
+      2.8
+    ],
+    "hour_range": [
+      10,
+      16
+    ]
+  },
+  "\ud83c\udf24 Outdoor - Overcast / Cloudy": {
+    "iso_range": [
+      100,
+      400
+    ],
+    "shutter_range": [
+      0.004,
+      0.01
+    ],
+    "fnumber_range": [
+      1.8,
+      2.8
+    ],
+    "hour_range": [
+      9,
+      17
+    ]
+  },
+  "\ud83c\udf05 Outdoor - Golden Hour (Sunrise/Sunset)": {
+    "iso_range": [
+      64,
+      200
+    ],
+    "shutter_range": [
+      0.002,
+      0.008
+    ],
+    "fnumber_range": [
+      1.8,
+      2.4
+    ],
+    "hour_range": [
+      6,
+      9
+    ]
+  },
+  "\ud83c\udf06 Outdoor - Blue Hour / Dusk": {
+    "iso_range": [
+      200,
+      800
+    ],
+    "shutter_range": [
+      0.016666666666666666,
+      0.06666666666666667
+    ],
+    "fnumber_range": [
+      1.8,
+      2.0
+    ],
+    "hour_range": [
+      18,
+      21
+    ]
+  },
+  "\ud83c\udf03 Outdoor - Night / City Lights": {
+    "iso_range": [
+      800,
+      3200
+    ],
+    "shutter_range": [
+      0.03333333333333333,
+      0.125
+    ],
+    "fnumber_range": [
+      1.6,
+      2.0
+    ],
+    "hour_range": [
+      20,
+      23
+    ]
+  },
+  "\ud83c\udfe0 Indoor - Well Lit (Office/Cafe)": {
+    "iso_range": [
+      200,
+      800
+    ],
+    "shutter_range": [
+      0.008333333333333333,
+      0.016666666666666666
+    ],
+    "fnumber_range": [
+      1.8,
+      2.4
+    ],
+    "hour_range": [
+      9,
+      20
+    ]
+  },
+  "\ud83d\udd6f Indoor - Dim / Ambient Light": {
+    "iso_range": [
+      800,
+      3200
+    ],
+    "shutter_range": [
+      0.016666666666666666,
+      0.06666666666666667
+    ],
+    "fnumber_range": [
+      1.6,
+      1.8
+    ],
+    "hour_range": [
+      18,
+      23
+    ]
+  },
+  "\ud83c\udf7d Indoor - Restaurant / Bar": {
+    "iso_range": [
+      400,
+      1600
+    ],
+    "shutter_range": [
+      0.016666666666666666,
+      0.03333333333333333
+    ],
+    "fnumber_range": [
+      1.6,
+      2.0
+    ],
+    "hour_range": [
+      12,
+      23
+    ]
+  },
+  "\ud83c\udfd6 Beach / Coastal": {
+    "iso_range": [
+      50,
+      100
+    ],
+    "shutter_range": [
+      0.0005,
+      0.002
+    ],
+    "fnumber_range": [
+      2.0,
+      2.8
+    ],
+    "hour_range": [
+      9,
+      18
+    ]
+  },
+  "\ud83c\udfd4 Mountain / Landscape": {
+    "iso_range": [
+      50,
+      200
+    ],
+    "shutter_range": [
+      0.001,
+      0.004
+    ],
+    "fnumber_range": [
+      2.0,
+      4.0
+    ],
+    "hour_range": [
+      7,
+      18
+    ]
+  },
+  "\ud83c\udf32 Forest / Nature": {
+    "iso_range": [
+      100,
+      400
+    ],
+    "shutter_range": [
+      0.002,
+      0.008
+    ],
+    "fnumber_range": [
+      1.8,
+      2.8
+    ],
+    "hour_range": [
+      8,
+      17
+    ]
+  },
+  "\ud83e\udd33 Portrait - Outdoor": {
+    "iso_range": [
+      50,
+      200
+    ],
+    "shutter_range": [
+      0.002,
+      0.004
+    ],
+    "fnumber_range": [
+      1.6,
+      2.0
+    ],
+    "hour_range": [
+      9,
+      18
+    ]
+  },
+  "\ud83e\udd33 Portrait - Indoor": {
+    "iso_range": [
+      200,
+      800
+    ],
+    "shutter_range": [
+      0.008333333333333333,
+      0.016666666666666666
+    ],
+    "fnumber_range": [
+      1.6,
+      1.8
+    ],
+    "hour_range": [
+      10,
+      21
+    ]
+  },
+  "\ud83c\udf89 Event / Party": {
+    "iso_range": [
+      400,
+      3200
+    ],
+    "shutter_range": [
+      0.016666666666666666,
+      0.03333333333333333
+    ],
+    "fnumber_range": [
+      1.6,
+      2.0
+    ],
+    "hour_range": [
+      18,
+      23
+    ]
+  },
+  "\ud83c\udfd9 Street / Urban": {
+    "iso_range": [
+      100,
+      400
+    ],
+    "shutter_range": [
+      0.002,
+      0.008
+    ],
+    "fnumber_range": [
+      1.8,
+      2.8
+    ],
+    "hour_range": [
+      8,
+      20
+    ]
+  },
+  "\ud83c\udf5c Food / Flat Lay": {
+    "iso_range": [
+      100,
+      400
+    ],
+    "shutter_range": [
+      0.008333333333333333,
+      0.016666666666666666
+    ],
+    "fnumber_range": [
+      1.8,
+      2.4
+    ],
+    "hour_range": [
+      11,
+      21
+    ]
+  },
+  "\u2744\ufe0f Snow / Winter Outdoor": {
+    "iso_range": [
+      50,
+      200
+    ],
+    "shutter_range": [
+      0.001,
+      0.004
+    ],
+    "fnumber_range": [
+      2.0,
+      2.8
+    ],
+    "hour_range": [
+      9,
+      16
+    ]
+  },
+  "\ud83c\udf27 Rainy / Overcast Street": {
+    "iso_range": [
+      200,
+      800
+    ],
+    "shutter_range": [
+      0.004,
+      0.016666666666666666
+    ],
+    "fnumber_range": [
+      1.8,
+      2.4
+    ],
+    "hour_range": [
+      8,
+      18
+    ]
+  },
+  "\ud83d\ude97 Moving Vehicle / Travel": {
+    "iso_range": [
+      100,
+      400
+    ],
+    "shutter_range": [
+      0.002,
+      0.004
+    ],
+    "fnumber_range": [
+      1.8,
+      2.8
+    ],
+    "hour_range": [
+      7,
+      20
+    ]
+  },
+  "\ud83c\udfad Concert / Stage": {
+    "iso_range": [
+      1600,
+      6400
+    ],
+    "shutter_range": [
+      0.008,
+      0.016666666666666666
+    ],
+    "fnumber_range": [
+      1.6,
+      2.0
+    ],
+    "hour_range": [
+      19,
+      23
+    ]
+  }
+}

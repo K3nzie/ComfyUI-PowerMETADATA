@@ -1,0 +1,722 @@
+{
+  "\ud83d\udcf1 Apple iPhone 12": {
+    "Make": "Apple",
+    "Model": "iPhone 12",
+    "Software": "14.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 12 Pro Max": {
+    "Make": "Apple",
+    "Model": "iPhone 12 Pro Max",
+    "Software": "14.2",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 13": {
+    "Make": "Apple",
+    "Model": "iPhone 13",
+    "Software": "15.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 13 Pro": {
+    "Make": "Apple",
+    "Model": "iPhone 13 Pro",
+    "Software": "15.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 13 Pro Max": {
+    "Make": "Apple",
+    "Model": "iPhone 13 Pro Max",
+    "Software": "15.1",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 14": {
+    "Make": "Apple",
+    "Model": "iPhone 14",
+    "Software": "16.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 14 Pro": {
+    "Make": "Apple",
+    "Model": "iPhone 14 Pro",
+    "Software": "16.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 14 Pro Max": {
+    "Make": "Apple",
+    "Model": "iPhone 14 Pro Max",
+    "Software": "16.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 15": {
+    "Make": "Apple",
+    "Model": "iPhone 15",
+    "Software": "17.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 15 Pro": {
+    "Make": "Apple",
+    "Model": "iPhone 15 Pro",
+    "Software": "17.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 15 Pro Max": {
+    "Make": "Apple",
+    "Model": "iPhone 15 Pro Max",
+    "Software": "17.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 16": {
+    "Make": "Apple",
+    "Model": "iPhone 16",
+    "Software": "18.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 16 Pro": {
+    "Make": "Apple",
+    "Model": "iPhone 16 Pro",
+    "Software": "18.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Apple iPhone 16 Pro Max": {
+    "Make": "Apple",
+    "Model": "iPhone 16 Pro Max",
+    "Software": "18.0",
+    "LensMake": "Apple",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy S21": {
+    "Make": "Samsung",
+    "Model": "SM-G991B",
+    "Software": "11",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy S21 Ultra": {
+    "Make": "Samsung",
+    "Model": "SM-G998B",
+    "Software": "11",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy S22": {
+    "Make": "Samsung",
+    "Model": "SM-S901B",
+    "Software": "12",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy S22 Ultra": {
+    "Make": "Samsung",
+    "Model": "SM-S908B",
+    "Software": "12",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy S23": {
+    "Make": "Samsung",
+    "Model": "SM-S911B",
+    "Software": "13",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy S23 Ultra": {
+    "Make": "Samsung",
+    "Model": "SM-S918B",
+    "Software": "13",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy S24": {
+    "Make": "Samsung",
+    "Model": "SM-S921B",
+    "Software": "14",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy S24 Ultra": {
+    "Make": "Samsung",
+    "Model": "SM-S928B",
+    "Software": "14",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy S25": {
+    "Make": "Samsung",
+    "Model": "SM-S931B",
+    "Software": "15",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy S25 Ultra": {
+    "Make": "Samsung",
+    "Model": "SM-S938B",
+    "Software": "15",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy Z Fold 5": {
+    "Make": "Samsung",
+    "Model": "SM-F946B",
+    "Software": "13",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Samsung Galaxy Z Flip 5": {
+    "Make": "Samsung",
+    "Model": "SM-F731B",
+    "Software": "13",
+    "LensMake": "Samsung",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Google Pixel 6": {
+    "Make": "Google",
+    "Model": "Pixel 6",
+    "Software": "12",
+    "LensMake": "Google",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Google Pixel 6 Pro": {
+    "Make": "Google",
+    "Model": "Pixel 6 Pro",
+    "Software": "12",
+    "LensMake": "Google",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Google Pixel 7": {
+    "Make": "Google",
+    "Model": "Pixel 7",
+    "Software": "13",
+    "LensMake": "Google",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Google Pixel 7 Pro": {
+    "Make": "Google",
+    "Model": "Pixel 7 Pro",
+    "Software": "13",
+    "LensMake": "Google",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Google Pixel 8": {
+    "Make": "Google",
+    "Model": "Pixel 8",
+    "Software": "14",
+    "LensMake": "Google",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Google Pixel 8 Pro": {
+    "Make": "Google",
+    "Model": "Pixel 8 Pro",
+    "Software": "14",
+    "LensMake": "Google",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Google Pixel 9": {
+    "Make": "Google",
+    "Model": "Pixel 9",
+    "Software": "15",
+    "LensMake": "Google",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Google Pixel 9 Pro": {
+    "Make": "Google",
+    "Model": "Pixel 9 Pro",
+    "Software": "15",
+    "LensMake": "Google",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 OnePlus 11": {
+    "Make": "OnePlus",
+    "Model": "CPH2449",
+    "Software": "13",
+    "LensMake": "Hasselblad",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 OnePlus 12": {
+    "Make": "OnePlus",
+    "Model": "CPH2573",
+    "Software": "14",
+    "LensMake": "Hasselblad",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 OnePlus 12R": {
+    "Make": "OnePlus",
+    "Model": "CPH2609",
+    "Software": "14",
+    "LensMake": "OnePlus",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Xiaomi 13 Pro": {
+    "Make": "Xiaomi",
+    "Model": "2210132C",
+    "Software": "13",
+    "LensMake": "Leica",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Xiaomi 14": {
+    "Make": "Xiaomi",
+    "Model": "23127PN0CC",
+    "Software": "14",
+    "LensMake": "Leica",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Xiaomi 14 Ultra": {
+    "Make": "Xiaomi",
+    "Model": "24030PN60G",
+    "Software": "14",
+    "LensMake": "Leica",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Xiaomi Redmi Note 13 Pro": {
+    "Make": "Xiaomi",
+    "Model": "23090RA98G",
+    "Software": "13",
+    "LensMake": "Xiaomi",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Sony Xperia 1 V": {
+    "Make": "Sony",
+    "Model": "XQ-DQ72",
+    "Software": "13",
+    "LensMake": "Sony",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Sony Xperia 5 V": {
+    "Make": "Sony",
+    "Model": "XQ-DE72",
+    "Software": "13",
+    "LensMake": "Sony",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Sony Xperia 1 VI": {
+    "Make": "Sony",
+    "Model": "XQ-EC72",
+    "Software": "14",
+    "LensMake": "Sony",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Huawei P50 Pro": {
+    "Make": "Huawei",
+    "Model": "PGT-N19",
+    "Software": "12",
+    "LensMake": "Leica",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Huawei P60 Pro": {
+    "Make": "Huawei",
+    "Model": "MNA-AL00",
+    "Software": "13",
+    "LensMake": "Leica",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Nothing Phone (2)": {
+    "Make": "Nothing",
+    "Model": "A065",
+    "Software": "13",
+    "LensMake": "Nothing",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  },
+  "\ud83d\udcf1 Nothing Phone (2a)": {
+    "Make": "Nothing",
+    "Model": "A142",
+    "Software": "14",
+    "LensMake": "Nothing",
+    "ResolutionUnit": 2,
+    "XResolution": [
+      72,
+      1
+    ],
+    "YResolution": [
+      72,
+      1
+    ]
+  }
+}

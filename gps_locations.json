@@ -1,0 +1,542 @@
+{
+  "\ud83c\uddfa\ud83c\uddf8 New York, USA": {
+    "lat": 40.7128,
+    "lon": -74.006
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Los Angeles, USA": {
+    "lat": 34.0522,
+    "lon": -118.2437
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Chicago, USA": {
+    "lat": 41.8781,
+    "lon": -87.6298
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Houston, USA": {
+    "lat": 29.7604,
+    "lon": -95.3698
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Phoenix, USA": {
+    "lat": 33.4484,
+    "lon": -112.074
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Philadelphia, USA": {
+    "lat": 39.9526,
+    "lon": -75.1652
+  },
+  "\ud83c\uddfa\ud83c\uddf8 San Antonio, USA": {
+    "lat": 29.4241,
+    "lon": -98.4936
+  },
+  "\ud83c\uddfa\ud83c\uddf8 San Diego, USA": {
+    "lat": 32.7157,
+    "lon": -117.1611
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Dallas, USA": {
+    "lat": 32.7767,
+    "lon": -96.797
+  },
+  "\ud83c\uddfa\ud83c\uddf8 San Jose, USA": {
+    "lat": 37.3382,
+    "lon": -121.8863
+  },
+  "\ud83c\uddfa\ud83c\uddf8 San Francisco, USA": {
+    "lat": 37.7749,
+    "lon": -122.4194
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Seattle, USA": {
+    "lat": 47.6062,
+    "lon": -122.3321
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Denver, USA": {
+    "lat": 39.7392,
+    "lon": -104.9903
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Boston, USA": {
+    "lat": 42.3601,
+    "lon": -71.0589
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Miami, USA": {
+    "lat": 25.7617,
+    "lon": -80.1918
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Atlanta, USA": {
+    "lat": 33.749,
+    "lon": -84.388
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Minneapolis, USA": {
+    "lat": 44.9778,
+    "lon": -93.265
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Portland, USA": {
+    "lat": 45.5051,
+    "lon": -122.675
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Las Vegas, USA": {
+    "lat": 36.1699,
+    "lon": -115.1398
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Nashville, USA": {
+    "lat": 36.1627,
+    "lon": -86.7816
+  },
+  "\ud83c\uddfa\ud83c\uddf8 Austin, USA": {
+    "lat": 30.2672,
+    "lon": -97.7431
+  },
+  "\ud83c\uddfa\ud83c\uddf8 New Orleans, USA": {
+    "lat": 29.9511,
+    "lon": -90.0715
+  },
+  "\ud83c\uddec\ud83c\udde7 London, UK": {
+    "lat": 51.5074,
+    "lon": -0.1278
+  },
+  "\ud83c\uddec\ud83c\udde7 Manchester, UK": {
+    "lat": 53.4808,
+    "lon": -2.2426
+  },
+  "\ud83c\uddec\ud83c\udde7 Birmingham, UK": {
+    "lat": 52.4862,
+    "lon": -1.8904
+  },
+  "\ud83c\uddec\ud83c\udde7 Edinburgh, UK": {
+    "lat": 55.9533,
+    "lon": -3.1883
+  },
+  "\ud83c\uddec\ud83c\udde7 Glasgow, UK": {
+    "lat": 55.8642,
+    "lon": -4.2518
+  },
+  "\ud83c\uddec\ud83c\udde7 Bristol, UK": {
+    "lat": 51.4545,
+    "lon": -2.5879
+  },
+  "\ud83c\uddec\ud83c\udde7 Leeds, UK": {
+    "lat": 53.8008,
+    "lon": -1.5491
+  },
+  "\ud83c\uddeb\ud83c\uddf7 Paris, France": {
+    "lat": 48.8566,
+    "lon": 2.3522
+  },
+  "\ud83c\uddeb\ud83c\uddf7 Lyon, France": {
+    "lat": 45.764,
+    "lon": 4.8357
+  },
+  "\ud83c\uddeb\ud83c\uddf7 Marseille, France": {
+    "lat": 43.2965,
+    "lon": 5.3698
+  },
+  "\ud83c\uddeb\ud83c\uddf7 Nice, France": {
+    "lat": 43.7102,
+    "lon": 7.262
+  },
+  "\ud83c\uddeb\ud83c\uddf7 Bordeaux, France": {
+    "lat": 44.8378,
+    "lon": -0.5792
+  },
+  "\ud83c\uddeb\ud83c\uddf7 Toulouse, France": {
+    "lat": 43.6047,
+    "lon": 1.4442
+  },
+  "\ud83c\udde9\ud83c\uddea Berlin, Germany": {
+    "lat": 52.52,
+    "lon": 13.405
+  },
+  "\ud83c\udde9\ud83c\uddea Munich, Germany": {
+    "lat": 48.1351,
+    "lon": 11.582
+  },
+  "\ud83c\udde9\ud83c\uddea Hamburg, Germany": {
+    "lat": 53.5753,
+    "lon": 10.0153
+  },
+  "\ud83c\udde9\ud83c\uddea Frankfurt, Germany": {
+    "lat": 50.1109,
+    "lon": 8.6821
+  },
+  "\ud83c\udde9\ud83c\uddea Cologne, Germany": {
+    "lat": 50.9333,
+    "lon": 6.95
+  },
+  "\ud83c\udde9\ud83c\uddea Stuttgart, Germany": {
+    "lat": 48.7758,
+    "lon": 9.1829
+  },
+  "\ud83c\udde9\ud83c\uddea D\u00fcsseldorf, Germany": {
+    "lat": 51.2217,
+    "lon": 6.7762
+  },
+  "\ud83c\uddee\ud83c\uddf9 Rome, Italy": {
+    "lat": 41.9028,
+    "lon": 12.4964
+  },
+  "\ud83c\uddee\ud83c\uddf9 Milan, Italy": {
+    "lat": 45.4654,
+    "lon": 9.1859
+  },
+  "\ud83c\uddee\ud83c\uddf9 Florence, Italy": {
+    "lat": 43.7696,
+    "lon": 11.2558
+  },
+  "\ud83c\uddee\ud83c\uddf9 Venice, Italy": {
+    "lat": 45.4408,
+    "lon": 12.3155
+  },
+  "\ud83c\uddee\ud83c\uddf9 Naples, Italy": {
+    "lat": 40.8518,
+    "lon": 14.2681
+  },
+  "\ud83c\uddee\ud83c\uddf9 Turin, Italy": {
+    "lat": 45.0703,
+    "lon": 7.6869
+  },
+  "\ud83c\uddee\ud83c\uddf9 Bologna, Italy": {
+    "lat": 44.4949,
+    "lon": 11.3426
+  },
+  "\ud83c\uddea\ud83c\uddf8 Madrid, Spain": {
+    "lat": 40.4168,
+    "lon": -3.7038
+  },
+  "\ud83c\uddea\ud83c\uddf8 Barcelona, Spain": {
+    "lat": 41.3851,
+    "lon": 2.1734
+  },
+  "\ud83c\uddea\ud83c\uddf8 Seville, Spain": {
+    "lat": 37.3891,
+    "lon": -5.9845
+  },
+  "\ud83c\uddea\ud83c\uddf8 Valencia, Spain": {
+    "lat": 39.4699,
+    "lon": -0.3763
+  },
+  "\ud83c\uddea\ud83c\uddf8 Bilbao, Spain": {
+    "lat": 43.263,
+    "lon": -2.935
+  },
+  "\ud83c\uddea\ud83c\uddf8 M\u00e1laga, Spain": {
+    "lat": 36.7213,
+    "lon": -4.4214
+  },
+  "\ud83c\uddf3\ud83c\uddf1 Amsterdam, Netherlands": {
+    "lat": 52.3676,
+    "lon": 4.9041
+  },
+  "\ud83c\uddf3\ud83c\uddf1 Rotterdam, Netherlands": {
+    "lat": 51.9244,
+    "lon": 4.4777
+  },
+  "\ud83c\uddf3\ud83c\uddf1 The Hague, Netherlands": {
+    "lat": 52.0705,
+    "lon": 4.3007
+  },
+  "\ud83c\uddf3\ud83c\uddf1 Utrecht, Netherlands": {
+    "lat": 52.0907,
+    "lon": 5.1214
+  },
+  "\ud83c\udde7\ud83c\uddea Brussels, Belgium": {
+    "lat": 50.8503,
+    "lon": 4.3517
+  },
+  "\ud83c\udde7\ud83c\uddea Antwerp, Belgium": {
+    "lat": 51.2194,
+    "lon": 4.4025
+  },
+  "\ud83c\udde7\ud83c\uddea Ghent, Belgium": {
+    "lat": 51.0543,
+    "lon": 3.7174
+  },
+  "\ud83c\udde7\ud83c\uddea Bruges, Belgium": {
+    "lat": 51.2093,
+    "lon": 3.2247
+  },
+  "\ud83c\udde6\ud83c\uddf9 Vienna, Austria": {
+    "lat": 48.2082,
+    "lon": 16.3738
+  },
+  "\ud83c\udde6\ud83c\uddf9 Salzburg, Austria": {
+    "lat": 47.8095,
+    "lon": 13.055
+  },
+  "\ud83c\udde6\ud83c\uddf9 Innsbruck, Austria": {
+    "lat": 47.2692,
+    "lon": 11.4041
+  },
+  "\ud83c\udde8\ud83c\udded Zurich, Switzerland": {
+    "lat": 47.3769,
+    "lon": 8.5417
+  },
+  "\ud83c\udde8\ud83c\udded Geneva, Switzerland": {
+    "lat": 46.2044,
+    "lon": 6.1432
+  },
+  "\ud83c\udde8\ud83c\udded Basel, Switzerland": {
+    "lat": 47.5596,
+    "lon": 7.5886
+  },
+  "\ud83c\udde8\ud83c\udded Bern, Switzerland": {
+    "lat": 46.948,
+    "lon": 7.4474
+  },
+  "\ud83c\uddf5\ud83c\uddf9 Lisbon, Portugal": {
+    "lat": 38.7169,
+    "lon": -9.1395
+  },
+  "\ud83c\uddf5\ud83c\uddf9 Porto, Portugal": {
+    "lat": 41.1579,
+    "lon": -8.6291
+  },
+  "\ud83c\uddf5\ud83c\uddf9 Faro, Portugal": {
+    "lat": 37.0194,
+    "lon": -7.9322
+  },
+  "\ud83c\uddf8\ud83c\uddea Stockholm, Sweden": {
+    "lat": 59.3293,
+    "lon": 18.0686
+  },
+  "\ud83c\uddf8\ud83c\uddea Gothenburg, Sweden": {
+    "lat": 57.7089,
+    "lon": 11.9746
+  },
+  "\ud83c\uddf8\ud83c\uddea Malm\u00f6, Sweden": {
+    "lat": 55.605,
+    "lon": 13.0038
+  },
+  "\ud83c\uddf3\ud83c\uddf4 Oslo, Norway": {
+    "lat": 59.9139,
+    "lon": 10.7522
+  },
+  "\ud83c\uddf3\ud83c\uddf4 Bergen, Norway": {
+    "lat": 60.3913,
+    "lon": 5.3221
+  },
+  "\ud83c\uddf3\ud83c\uddf4 Trondheim, Norway": {
+    "lat": 63.4305,
+    "lon": 10.3951
+  },
+  "\ud83c\udde9\ud83c\uddf0 Copenhagen, Denmark": {
+    "lat": 55.6761,
+    "lon": 12.5683
+  },
+  "\ud83c\udde9\ud83c\uddf0 Aarhus, Denmark": {
+    "lat": 56.1629,
+    "lon": 10.2039
+  },
+  "\ud83c\uddeb\ud83c\uddee Helsinki, Finland": {
+    "lat": 60.1699,
+    "lon": 24.9384
+  },
+  "\ud83c\uddeb\ud83c\uddee Tampere, Finland": {
+    "lat": 61.4978,
+    "lon": 23.761
+  },
+  "\ud83c\uddf5\ud83c\uddf1 Warsaw, Poland": {
+    "lat": 52.2297,
+    "lon": 21.0122
+  },
+  "\ud83c\uddf5\ud83c\uddf1 Krakow, Poland": {
+    "lat": 50.0647,
+    "lon": 19.945
+  },
+  "\ud83c\uddf5\ud83c\uddf1 Wroclaw, Poland": {
+    "lat": 51.1079,
+    "lon": 17.0385
+  },
+  "\ud83c\uddf5\ud83c\uddf1 Gdansk, Poland": {
+    "lat": 54.352,
+    "lon": 18.6466
+  },
+  "\ud83c\udde8\ud83c\uddff Prague, Czech Republic": {
+    "lat": 50.0755,
+    "lon": 14.4378
+  },
+  "\ud83c\udde8\ud83c\uddff Brno, Czech Republic": {
+    "lat": 49.1951,
+    "lon": 16.6068
+  },
+  "\ud83c\udded\ud83c\uddfa Budapest, Hungary": {
+    "lat": 47.4979,
+    "lon": 19.0402
+  },
+  "\ud83c\uddf7\ud83c\uddf4 Bucharest, Romania": {
+    "lat": 44.4268,
+    "lon": 26.1025
+  },
+  "\ud83c\uddf7\ud83c\uddf4 Cluj-Napoca, Romania": {
+    "lat": 46.7712,
+    "lon": 23.6236
+  },
+  "\ud83c\uddec\ud83c\uddf7 Athens, Greece": {
+    "lat": 37.9838,
+    "lon": 23.7275
+  },
+  "\ud83c\uddec\ud83c\uddf7 Thessaloniki, Greece": {
+    "lat": 40.6401,
+    "lon": 22.9444
+  },
+  "\ud83c\uddec\ud83c\uddf7 Heraklion, Greece": {
+    "lat": 35.3387,
+    "lon": 25.1442
+  },
+  "\ud83c\udded\ud83c\uddf7 Zagreb, Croatia": {
+    "lat": 45.815,
+    "lon": 15.9819
+  },
+  "\ud83c\udded\ud83c\uddf7 Split, Croatia": {
+    "lat": 43.5081,
+    "lon": 16.4402
+  },
+  "\ud83c\udded\ud83c\uddf7 Dubrovnik, Croatia": {
+    "lat": 42.6507,
+    "lon": 18.0944
+  },
+  "\ud83c\uddf8\ud83c\uddf0 Bratislava, Slovakia": {
+    "lat": 48.1486,
+    "lon": 17.1077
+  },
+  "\ud83c\uddf8\ud83c\uddee Ljubljana, Slovenia": {
+    "lat": 46.0569,
+    "lon": 14.5058
+  },
+  "\ud83c\uddf7\ud83c\uddf8 Belgrade, Serbia": {
+    "lat": 44.7866,
+    "lon": 20.4489
+  },
+  "\ud83c\uddfa\ud83c\udde6 Kyiv, Ukraine": {
+    "lat": 50.4501,
+    "lon": 30.5234
+  },
+  "\ud83c\uddfa\ud83c\udde6 Lviv, Ukraine": {
+    "lat": 49.8397,
+    "lon": 24.0297
+  },
+  "\ud83c\uddf9\ud83c\uddf7 Istanbul, Turkey": {
+    "lat": 41.0082,
+    "lon": 28.9784
+  },
+  "\ud83c\uddf9\ud83c\uddf7 Ankara, Turkey": {
+    "lat": 39.9334,
+    "lon": 32.8597
+  },
+  "\ud83c\uddf9\ud83c\uddf7 Izmir, Turkey": {
+    "lat": 38.4192,
+    "lon": 27.1287
+  },
+  "\ud83c\uddee\ud83c\uddea Dublin, Ireland": {
+    "lat": 53.3498,
+    "lon": -6.2603
+  },
+  "\ud83c\uddee\ud83c\uddea Cork, Ireland": {
+    "lat": 51.8985,
+    "lon": -8.4756
+  },
+  "\ud83c\uddf1\ud83c\uddfa Luxembourg City, Luxembourg": {
+    "lat": 49.6116,
+    "lon": 6.1319
+  },
+  "\ud83c\uddf2\ud83c\uddf9 Valletta, Malta": {
+    "lat": 35.8997,
+    "lon": 14.5147
+  },
+  "\ud83c\uddee\ud83c\uddf8 Reykjavik, Iceland": {
+    "lat": 64.1355,
+    "lon": -21.8954
+  },
+  "\ud83c\udde6\ud83c\udde9 Andorra la Vella, Andorra": {
+    "lat": 42.5063,
+    "lon": 1.5218
+  },
+  "\ud83c\udde6\ud83c\udde9 Escaldes-Engordany, Andorra": {
+    "lat": 42.5063,
+    "lon": 1.5341
+  },
+  "\ud83c\udded\ud83c\uddfa Debrecen, Hungary": {
+    "lat": 47.5316,
+    "lon": 21.6273
+  },
+  "\ud83c\udded\ud83c\uddfa P\u00e9cs, Hungary": {
+    "lat": 46.0727,
+    "lon": 18.233
+  },
+  "\ud83c\udded\ud83c\uddfa Gy\u0151r, Hungary": {
+    "lat": 47.6875,
+    "lon": 17.6504
+  },
+  "\ud83c\uddee\ud83c\uddf8 Akureyri, Iceland": {
+    "lat": 65.6835,
+    "lon": -18.1002
+  },
+  "\ud83c\uddee\ud83c\uddf8 Keflav\u00edk, Iceland": {
+    "lat": 63.985,
+    "lon": -22.5561
+  },
+  "\ud83c\uddf1\ud83c\uddfa Esch-sur-Alzette, Luxembourg": {
+    "lat": 49.4958,
+    "lon": 5.9806
+  },
+  "\ud83c\uddf2\ud83c\uddf9 Sliema, Malta": {
+    "lat": 35.9122,
+    "lon": 14.5017
+  },
+  "\ud83c\uddf2\ud83c\udde8 Monte Carlo, Monaco": {
+    "lat": 43.7396,
+    "lon": 7.4278
+  },
+  "\ud83c\uddf7\ud83c\uddf8 Novi Sad, Serbia": {
+    "lat": 45.2671,
+    "lon": 19.8335
+  },
+  "\ud83c\uddf7\ud83c\uddf8 Ni\u0161, Serbia": {
+    "lat": 43.3209,
+    "lon": 21.8954
+  },
+  "\ud83c\uddf7\ud83c\uddf8 Kragujevac, Serbia": {
+    "lat": 44.0165,
+    "lon": 20.9114
+  },
+  "\ud83c\uddf8\ud83c\uddf0 Ko\u0161ice, Slovakia": {
+    "lat": 48.7164,
+    "lon": 21.2611
+  },
+  "\ud83c\uddf8\ud83c\uddf0 Pre\u0161ov, Slovakia": {
+    "lat": 49.0014,
+    "lon": 21.2392
+  },
+  "\ud83c\uddf8\ud83c\uddee Maribor, Slovenia": {
+    "lat": 46.5547,
+    "lon": 15.6459
+  },
+  "\ud83c\uddf8\ud83c\uddee Celje, Slovenia": {
+    "lat": 46.2311,
+    "lon": 15.2677
+  },
+  "\ud83c\udde8\ud83c\uddff Ostrava, Czech Republic": {
+    "lat": 49.8209,
+    "lon": 18.2625
+  },
+  "\ud83c\udde9\ud83c\uddf0 Odense, Denmark": {
+    "lat": 55.4038,
+    "lon": 10.4024
+  },
+  "\ud83c\uddeb\ud83c\uddee Turku, Finland": {
+    "lat": 60.4518,
+    "lon": 22.2666
+  },
+  "\ud83c\uddee\ud83c\uddea Galway, Ireland": {
+    "lat": 53.2707,
+    "lon": -9.0568
+  },
+  "\ud83c\uddf7\ud83c\uddf4 Timi\u0219oara, Romania": {
+    "lat": 45.7489,
+    "lon": 21.2087
+  },
+  "\ud83c\uddfa\ud83c\udde6 Odessa, Ukraine": {
+    "lat": 46.4825,
+    "lon": 30.7233
+  },
+  "\ud83c\uddf2\ud83c\udde8 Monaco City, Monaco": {
+    "lat": 43.7384,
+    "lon": 7.4246
+  }
+}
