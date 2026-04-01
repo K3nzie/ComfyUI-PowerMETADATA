@@ -1,5 +1,9 @@
 # ComfyUI Power METADATA
 
+<p align="center">
+  <img src="https://i.imgur.com/cfqskk5.png" alt="ComfyUI Power METADATA workflow preview" width="800"/>
+</p>
+
 A ComfyUI custom node pack that strips AI-generated metadata from images and injects
 authentic-looking phone EXIF data — with scene-aware camera settings, mobility-based
 GPS noise, and full batch support.
