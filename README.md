@@ -1,8 +1,8 @@
 # ComfyUI Power METADATA
 
 A ComfyUI custom node pack that strips AI-generated metadata from images and injects
-authentic-looking phone EXIF data — with scene-aware camera settings and mobility-based
-GPS noise for maximum realism.
+authentic-looking phone EXIF data — with scene-aware camera settings, mobility-based
+GPS noise, and full batch support.
 
 ---
 
@@ -16,7 +16,8 @@ GPS noise for maximum realism.
   and time-of-day so camera settings actually match the visual content
 - **3 mobility patterns** — control GPS coordinate noise radius to match how much
   the "person" is moving between shots
-- **GPS noise** — random offset applied to coordinates based on mobility pattern
+- **Batch support** — process multiple images at once; each image gets its own unique
+  randomised EXIF (datetime, GPS offset, camera settings)
 
 ---
 
@@ -36,6 +37,7 @@ GPS noise for maximum realism.
    ```
 3. Restart ComfyUI.
 4. Right-click the canvas → **Add Node** → look for the **Power METADATA** category.
+5. Delete `__pycache__/` if updating from a previous version.
 
 ---
 
@@ -59,14 +61,16 @@ Outputs a `device_profile`, `gps_location`, `scene_profile`, and `gps_radius_m` 
 | `Local` | ±200 m | Same neighbourhood — nearby streets, park |
 | `Roaming` | ±800 m | Moving around the city |
 
-> **Tip:** For a person photographed over 1 week in the same location, use `Stationary`
+> **Tip:** For a set of photos taken in the same location, use `Stationary`
 > so GPS coords stay within ±15 m of each other — just like a real phone would.
 
 ---
 
 ### 🔧 Metadata Injector
-Injects EXIF into the image tensor and **returns it** for further node processing.
+Injects EXIF into the image tensor (or batch) and **returns it** for further node processing.
 Use this when you need to do more work on the image before saving.
+
+**Batch behaviour:** each image in the batch gets its own unique randomised EXIF.
 
 > ⚠️ **Do NOT chain into SynthesizeAndSave** — that double-injects EXIF.
 
@@ -78,8 +82,12 @@ LoadImage → DeviceProfileSelector → MetadataInjector → (more nodes) → Sa
 ---
 
 ### 💾 Synthesize & Save w/ Authentic Metadata
-All-in-one node: injects EXIF and saves the JPEG directly to disk.
+All-in-one node: injects EXIF and saves the JPEG(s) directly to disk.
 Use this as your **final save step**.
+
+**Batch behaviour:** each image is saved as a separate file with its own unique EXIF.
+Single images → `photo_20260401_123456.jpg`
+Batches → `photo_20260401_123456_001.jpg`, `_002.jpg`, etc.
 
 > ⚠️ **Do NOT feed MetadataInjector output into this node.**
 
@@ -99,8 +107,10 @@ Output saved to: `ComfyUI/output/PowerMETADATA/`
 ---
 
 ### 📂 Load & Strip Metadata
-Strips ALL existing metadata from an image tensor, returning a clean slate.
+Strips ALL existing metadata from an image tensor (or batch), returning a clean slate.
 Useful as a pre-processing step before injecting fresh EXIF.
+
+**Batch behaviour:** all images in the batch are stripped.
 
 **Typical workflow:**
 ```
@@ -123,6 +133,23 @@ Each scene type randomises camera settings within realistic bounds:
 | 🏖 Beach / Coastal | 50–100 | 1/500–1/2000 | f/2.0–2.8 |
 | ❄️ Snow / Winter | 50–200 | 1/250–1/1000 | f/2.0–2.8 |
 | *(+ 13 more...)* | | | |
+
+---
+
+## Batch Workflow Example
+
+To process a set of photos for one post:
+
+```
+[Load Image Batch] ──→ [📱 Device Profile Selector]
+                              ↓
+                   [💾 Synthesize & Save]
+```
+
+Each image in the batch will have:
+- A different randomised datetime
+- A slightly different GPS coordinate (within your chosen mobility radius)
+- Different camera settings (ISO, shutter, aperture) within the scene's realistic range
 
 ---
 
