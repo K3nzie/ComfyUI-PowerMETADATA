@@ -23,11 +23,31 @@ GPS noise, and full batch support.
 
 ## Installation
 
-1. Copy the `ComfyUI_PowerMETADATA/` folder into:
+### Option 1 — Git (recommended)
+
+```bash
+cd ComfyUI/custom_nodes
+git clone https://github.com/K3nzie/ComfyUI-PowerMETADATA
+```
+
+To update to the latest version:
+
+```bash
+cd ComfyUI/custom_nodes/ComfyUI-PowerMETADATA
+git pull
+```
+
+### Option 2 — Manual download
+
+1. Download the ZIP from [github.com/K3nzie/ComfyUI-PowerMETADATA](https://github.com/K3nzie/ComfyUI-PowerMETADATA)
+2. Extract and copy the folder into:
    ```
    ComfyUI/custom_nodes/ComfyUI_PowerMETADATA/
    ```
-2. Install the only non-standard dependency:
+
+### After installing (both methods)
+
+1. Install the only non-standard dependency:
    ```bash
    # Portable install:
    python_embeded\python.exe -m pip install piexif
@@ -35,9 +55,9 @@ GPS noise, and full batch support.
    # venv install:
    pip install piexif
    ```
-3. Restart ComfyUI.
-4. Right-click the canvas → **Add Node** → look for the **Power METADATA** category.
-5. Delete `__pycache__/` if updating from a previous version.
+2. Restart ComfyUI.
+3. Right-click the canvas → **Add Node** → look for the **Power METADATA** category.
+4. Delete `__pycache__/` if updating from a previous version.
 
 ---
 
