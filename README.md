@@ -108,13 +108,18 @@ Output saved to: `ComfyUI/output/PowerMETADATA/`
 
 ### 📂 Load & Strip Metadata
 Strips ALL existing metadata from an image tensor (or batch), returning a clean slate.
-Useful as a pre-processing step before injecting fresh EXIF.
+
+> **Note:** If you are using `SynthesizeAndSave`, you do **not** need this node — it already
+> overwrites all EXIF when saving, so any pre-existing metadata is gone regardless.
+>
+> This node is only useful when using `MetadataInjector` (which returns a tensor without saving),
+> and you want to guarantee the tensor is completely clean before passing it downstream.
 
 **Batch behaviour:** all images in the batch are stripped.
 
-**Typical workflow:**
+**Typical workflow (only when using MetadataInjector):**
 ```
-LoadImage → LoadAndStrip → DeviceProfileSelector → SynthesizeAndSave
+LoadImage → 📂 Load & Strip → 📱 Device Profile Selector → 🔧 Metadata Injector → SaveImage
 ```
 
 ---
