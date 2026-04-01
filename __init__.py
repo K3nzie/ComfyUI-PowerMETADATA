@@ -7,15 +7,19 @@ and injects authentic-looking phone EXIF data, with scene-aware camera settings.
 WHAT'S INCLUDED
 ---------------
   • 48 phone device profiles  (Apple, Samsung, Google, OnePlus, Xiaomi, Sony, Huawei, Nothing)
-  • 113 GPS locations          (22 US cities + full EU coverage across 25+ countries)
+  • 135 GPS locations          (22 US cities + full EU coverage across 30+ countries)
   • 20 scene types             (each drives realistic ISO, shutter, aperture & time-of-day)
+  • 3 mobility patterns        (controls GPS noise radius for realistic location variance)
 
 NODES
 -----
 1. 📱 Device Profile Selector
-   - Choose a phone model, a GPS city, and a scene type.
-   - Scene type controls realistic camera settings (ISO, shutter speed, aperture)
-     so they match the visual content — e.g. beach = low ISO, night = high ISO.
+   - Choose a phone model, GPS city, scene type, and mobility pattern.
+   - Scene type controls realistic camera settings (ISO, shutter speed, aperture).
+   - Mobility pattern controls GPS coordinate noise:
+       Stationary  ±15 m   — same room / building
+       Local       ±200 m  — same neighbourhood
+       Roaming     ±800 m  — moving around the city
    - Output feeds into either MetadataInjector OR SynthesizeAndSave.
 
 2. 🔧 Metadata Injector  [USE THIS when you need the tensor for more nodes]

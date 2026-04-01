@@ -1,7 +1,8 @@
 # ComfyUI Power METADATA
 
 A ComfyUI custom node pack that strips AI-generated metadata from images and injects
-authentic-looking phone EXIF data — with scene-aware camera settings for maximum realism.
+authentic-looking phone EXIF data — with scene-aware camera settings and mobility-based
+GPS noise for maximum realism.
 
 ---
 
@@ -10,12 +11,12 @@ authentic-looking phone EXIF data — with scene-aware camera settings for maxim
 - **48 phone device profiles** — Apple iPhone 12–16 Pro Max, Samsung Galaxy S21–S25 Ultra,
   Google Pixel 6–9 Pro, OnePlus 11/12, Xiaomi 13 Pro/14/14 Ultra, Sony Xperia 1V/5V/1VI,
   Huawei P50/P60 Pro, Nothing Phone 2/2a
-- **113 GPS locations** — 22 US cities + full EU coverage (UK, France, Germany, Italy,
-  Spain, Netherlands, Belgium, Austria, Switzerland, Portugal, Sweden, Norway, Denmark,
-  Finland, Poland, Czech Republic, Hungary, Romania, Greece, Croatia, and more)
-- **20 scene types** — each one drives realistic, randomised ISO / shutter speed / aperture
-  and time-of-day so camera settings actually match the visual content of the image
-- **GPS noise** — small random offset applied to coordinates (±400 m) for natural variation
+- **135 GPS locations** — 22 US cities + full EU coverage (30+ countries)
+- **20 scene types** — each drives realistic, randomised ISO / shutter speed / aperture
+  and time-of-day so camera settings actually match the visual content
+- **3 mobility patterns** — control GPS coordinate noise radius to match how much
+  the "person" is moving between shots
+- **GPS noise** — random offset applied to coordinates based on mobility pattern
 
 ---
 
@@ -41,13 +42,25 @@ authentic-looking phone EXIF data — with scene-aware camera settings for maxim
 ## Nodes
 
 ### 📱 Device Profile Selector
-Outputs a `device_profile`, `gps_location`, and `scene_profile` to feed into the injection nodes.
+Outputs a `device_profile`, `gps_location`, `scene_profile`, and `gps_radius_m` to feed into the injection nodes.
 
 | Input | Description |
 |---|---|
 | `device` | Phone model (48 options) |
-| `location` | GPS city (113 options, flagged by country) |
+| `location` | GPS city (135 options, flagged by country) |
 | `scene_type` | Scene type that drives camera settings (20 options) |
+| `mobility_pattern` | Controls GPS noise radius (see table below) |
+
+#### Mobility Patterns
+
+| Pattern | Radius | Best used for |
+|---|---|---|
+| `Stationary` | ±15 m | Same room / building — home, office, same spot |
+| `Local` | ±200 m | Same neighbourhood — nearby streets, park |
+| `Roaming` | ±800 m | Moving around the city |
+
+> **Tip:** For a person photographed over 1 week in the same location, use `Stationary`
+> so GPS coords stay within ±15 m of each other — just like a real phone would.
 
 ---
 
@@ -79,6 +92,7 @@ LoadImage → DeviceProfileSelector → SynthesizeAndSave
 |---|---|
 | `filename_prefix` | Output filename prefix (default: `phone_photo`) |
 | `quality` | JPEG quality 60–100 (default: 95) |
+| `gps_radius_m` | GPS noise radius in metres (wired from DeviceProfileSelector) |
 
 Output saved to: `ComfyUI/output/PowerMETADATA/`
 
@@ -120,7 +134,7 @@ ComfyUI_PowerMETADATA/
 ├── nodes.py              # Core node logic
 ├── device_profiles.json  # 48 phone EXIF profiles
 ├── scene_profiles.json   # 20 scene types with camera setting ranges
-├── gps_locations.json    # 113 GPS city coordinates
+├── gps_locations.json    # 135 GPS city coordinates
 └── requirements.txt      # piexif, Pillow, numpy
 ```
 

@@ -17,6 +17,18 @@ MetadataInjector vs SynthesizeAndSave — pick ONE per workflow:
   │  ⚠️  NEVER chain MetadataInjector → SynthesizeAndSave           │
   │      That will double-inject EXIF and corrupt the output.       │
   └─────────────────────────────────────────────────────────────────┘
+
+BATCH SUPPORT
+-------------
+  Both injection nodes process the full batch automatically.
+  Each image in the batch gets its own randomised EXIF (datetime,
+  GPS offset, camera settings) — they are NOT identical copies.
+
+MOBILITY PATTERNS (GPS noise radius)
+-------------------------------------
+  Stationary  ±15 m   — same room / building (home, office)
+  Local       ±200 m  — same neighbourhood
+  Roaming     ±800 m  — moving around the city
 """
 
 import os
@@ -41,6 +53,13 @@ with open(os.path.join(_HERE, "gps_locations.json"), "r") as f:
 
 with open(os.path.join(_HERE, "scene_profiles.json"), "r") as f:
     SCENE_PROFILES = json.load(f)
+
+# Mobility pattern → GPS noise radius in metres
+MOBILITY_PATTERNS = {
+    "Stationary  (±15 m  — same room / building)": 15,
+    "Local       (±200 m — same neighbourhood)":   200,
+    "Roaming     (±800 m — moving around city)":   800,
+}
 
 # ── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -78,7 +97,6 @@ def _pick_camera_settings(scene_profile):
 
     s_min, s_max = scene_profile["shutter_range"]
     shutter = random.uniform(s_min, s_max)
-    # Express as rational: numerator=1, denominator=round(1/shutter)
     shutter_denom = max(1, round(1.0 / shutter))
     shutter_rational = (1, shutter_denom)
 
@@ -86,91 +104,115 @@ def _pick_camera_settings(scene_profile):
     fnumber_float = random.uniform(fn_min, fn_max)
     fnumber_rational = (round(fnumber_float * 10), 10)
 
-    # Focal length: slight variation around 24-26mm equivalent
     focal = random.randint(24, 28)
     focal_rational = (focal, 1)
 
     return iso, shutter_rational, fnumber_rational, focal_rational
 
 
-def _build_exif(device_profile: dict, location: dict, scene_profile: dict) -> bytes:
-    lat, lon = _add_gps_noise(location["lat"], location["lon"])
+def _build_exif(device_profile: dict, location: dict, scene_profile: dict, radius_m: int) -> bytes:
+    """Build a unique EXIF blob — called once per image so each gets its own randomised values."""
+    lat, lon = _add_gps_noise(location["lat"], location["lon"], radius_m)
     dt_str = _random_datetime(scene_profile)
     iso, shutter, fnumber, focal = _pick_camera_settings(scene_profile)
 
     zeroth = {
-        piexif.ImageIFD.Make: device_profile["Make"].encode(),
-        piexif.ImageIFD.Model: device_profile["Model"].encode(),
-        piexif.ImageIFD.Software: device_profile["Software"].encode(),
-        piexif.ImageIFD.DateTime: dt_str.encode(),
-        piexif.ImageIFD.ResolutionUnit: device_profile.get("ResolutionUnit", 2),
-        piexif.ImageIFD.XResolution: tuple(device_profile["XResolution"]),
-        piexif.ImageIFD.YResolution: tuple(device_profile["YResolution"]),
+        piexif.ImageIFD.Make:            device_profile["Make"].encode(),
+        piexif.ImageIFD.Model:           device_profile["Model"].encode(),
+        piexif.ImageIFD.Software:        device_profile["Software"].encode(),
+        piexif.ImageIFD.DateTime:        dt_str.encode(),
+        piexif.ImageIFD.ResolutionUnit:  device_profile.get("ResolutionUnit", 2),
+        piexif.ImageIFD.XResolution:     tuple(device_profile["XResolution"]),
+        piexif.ImageIFD.YResolution:     tuple(device_profile["YResolution"]),
     }
 
     exif_ifd = {
-        piexif.ExifIFD.DateTimeOriginal: dt_str.encode(),
+        piexif.ExifIFD.DateTimeOriginal:  dt_str.encode(),
         piexif.ExifIFD.DateTimeDigitized: dt_str.encode(),
-        piexif.ExifIFD.FocalLength: focal,
-        piexif.ExifIFD.FNumber: fnumber,
-        piexif.ExifIFD.ExposureTime: shutter,
-        piexif.ExifIFD.ISOSpeedRatings: iso,
-        piexif.ExifIFD.LensMake: device_profile.get("LensMake", device_profile["Make"]).encode(),
+        piexif.ExifIFD.FocalLength:       focal,
+        piexif.ExifIFD.FNumber:           fnumber,
+        piexif.ExifIFD.ExposureTime:      shutter,
+        piexif.ExifIFD.ISOSpeedRatings:   iso,
+        piexif.ExifIFD.LensMake:          device_profile.get("LensMake", device_profile["Make"]).encode(),
     }
 
     gps_ifd = {
-        piexif.GPSIFD.GPSLatitudeRef: b"N" if lat >= 0 else b"S",
-        piexif.GPSIFD.GPSLatitude: _deg_to_dms(lat),
+        piexif.GPSIFD.GPSLatitudeRef:  b"N" if lat >= 0 else b"S",
+        piexif.GPSIFD.GPSLatitude:     _deg_to_dms(lat),
         piexif.GPSIFD.GPSLongitudeRef: b"E" if lon >= 0 else b"W",
-        piexif.GPSIFD.GPSLongitude: _deg_to_dms(lon),
+        piexif.GPSIFD.GPSLongitude:    _deg_to_dms(lon),
     }
 
     return piexif.dump({"0th": zeroth, "Exif": exif_ifd, "GPS": gps_ifd})
 
 
-def _tensor_to_pil(tensor) -> Image.Image:
-    arr = (tensor.squeeze(0).cpu().numpy() * 255).clip(0, 255).astype(np.uint8)
-    return Image.fromarray(arr)
+def _inject_single(tensor_frame, device_profile, location, scene_profile, radius_m, quality=95):
+    """Inject EXIF into a single [H, W, C] tensor frame. Returns a PIL Image."""
+    arr = (tensor_frame.cpu().numpy() * 255).clip(0, 255).astype(np.uint8)
+    pil_img = Image.fromarray(arr).convert("RGB")
+    exif_bytes = _build_exif(device_profile, location, scene_profile, radius_m)
+    buf = io.BytesIO()
+    pil_img.save(buf, format="JPEG", exif=exif_bytes, quality=quality)
+    buf.seek(0)
+    return Image.open(buf).copy()
 
 
 def _pil_to_tensor(img: Image.Image):
     import torch
     arr = np.array(img).astype(np.float32) / 255.0
-    return torch.from_numpy(arr).unsqueeze(0)
+    return torch.from_numpy(arr)          # [H, W, C]
+
+
+def _tensor_to_pil(tensor) -> Image.Image:
+    """Legacy single-image helper (used by LoadAndStrip)."""
+    arr = (tensor.squeeze(0).cpu().numpy() * 255).clip(0, 255).astype(np.uint8)
+    return Image.fromarray(arr)
 
 
 # ── Node 1: DeviceProfileSelector ────────────────────────────────────────────
 
 class DeviceProfileSelector:
-    """Select a phone device profile, GPS location, and scene type for EXIF injection."""
+    """
+    Select a phone device profile, GPS location, scene type, and mobility pattern.
+
+    Mobility pattern controls the GPS noise radius:
+      Stationary  ±15 m   — same room / building (home, office, same spot)
+      Local       ±200 m  — same neighbourhood
+      Roaming     ±800 m  — moving around the city
+    """
 
     CATEGORY = "Power METADATA"
-    RETURN_TYPES = ("DEVICE_PROFILE", "GPS_LOCATION", "SCENE_PROFILE")
-    RETURN_NAMES = ("device_profile", "gps_location", "scene_profile")
+    RETURN_TYPES = ("DEVICE_PROFILE", "GPS_LOCATION", "SCENE_PROFILE", "INT")
+    RETURN_NAMES = ("device_profile", "gps_location", "scene_profile", "gps_radius_m")
     FUNCTION = "select"
 
     @classmethod
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "device": (list(DEVICE_PROFILES.keys()),),
-                "location": (list(GPS_LOCATIONS.keys()),),
-                "scene_type": (list(SCENE_PROFILES.keys()),),
+                "device":           (list(DEVICE_PROFILES.keys()),),
+                "location":         (list(GPS_LOCATIONS.keys()),),
+                "scene_type":       (list(SCENE_PROFILES.keys()),),
+                "mobility_pattern": (list(MOBILITY_PATTERNS.keys()),),
             }
         }
 
-    def select(self, device, location, scene_type):
-        return (DEVICE_PROFILES[device], GPS_LOCATIONS[location], SCENE_PROFILES[scene_type])
+    def select(self, device, location, scene_type, mobility_pattern):
+        radius_m = MOBILITY_PATTERNS[mobility_pattern]
+        return (DEVICE_PROFILES[device], GPS_LOCATIONS[location], SCENE_PROFILES[scene_type], radius_m)
 
 
 # ── Node 2: MetadataInjector ──────────────────────────────────────────────────
 
 class MetadataInjector:
     """
-    Inject phone EXIF metadata into an image tensor and return it.
+    Inject phone EXIF metadata into an image tensor (or batch) and return it.
+
+    Supports batches — each image in the batch gets its own unique randomised
+    EXIF (datetime, GPS offset, camera settings).
 
     USE THIS NODE when you need the tensor for further processing downstream.
-    Save the result with ComfyUI\'s built-in SaveImage node.
+    Save the result with ComfyUI's built-in SaveImage node.
 
     ⚠️  Do NOT chain this into SynthesizeAndSave — that double-injects EXIF.
 
@@ -188,30 +230,33 @@ class MetadataInjector:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "image": ("IMAGE",),
+                "image":          ("IMAGE",),
                 "device_profile": ("DEVICE_PROFILE",),
-                "gps_location": ("GPS_LOCATION",),
-                "scene_profile": ("SCENE_PROFILE",),
+                "gps_location":   ("GPS_LOCATION",),
+                "scene_profile":  ("SCENE_PROFILE",),
+                "gps_radius_m":   ("INT", {"default": 400, "min": 5, "max": 2000}),
             }
         }
 
-    def inject(self, image, device_profile, gps_location, scene_profile):
-        pil_img = _tensor_to_pil(image).convert("RGB")
-        exif_bytes = _build_exif(device_profile, gps_location, scene_profile)
-        buf = io.BytesIO()
-        pil_img.save(buf, format="JPEG", exif=exif_bytes, quality=95)
-        buf.seek(0)
-        result = Image.open(buf).copy()
-        return (_pil_to_tensor(result),)
+    def inject(self, image, device_profile, gps_location, scene_profile, gps_radius_m):
+        import torch
+        frames = []
+        for i in range(image.shape[0]):
+            pil = _inject_single(image[i], device_profile, gps_location, scene_profile, gps_radius_m)
+            frames.append(_pil_to_tensor(pil))
+        return (torch.stack(frames),)   # [B, H, W, C]
 
 
 # ── Node 3: SynthesizeAndSave ─────────────────────────────────────────────────
 
 class SynthesizeAndSave:
     """
-    All-in-one: inject authentic phone EXIF and save the JPEG.
+    All-in-one: inject authentic phone EXIF and save the JPEG(s).
 
-    USE THIS NODE as your final save step when you don\'t need the tensor
+    Supports batches — each image in the batch is saved as a separate file,
+    each with its own unique randomised EXIF.
+
+    USE THIS NODE as your final save step when you don't need the tensor
     for any further processing.
 
     ⚠️  Do NOT feed MetadataInjector output into this node.
@@ -230,35 +275,42 @@ class SynthesizeAndSave:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "image": ("IMAGE",),
-                "device_profile": ("DEVICE_PROFILE",),
-                "gps_location": ("GPS_LOCATION",),
-                "scene_profile": ("SCENE_PROFILE",),
+                "image":           ("IMAGE",),
+                "device_profile":  ("DEVICE_PROFILE",),
+                "gps_location":    ("GPS_LOCATION",),
+                "scene_profile":   ("SCENE_PROFILE",),
+                "gps_radius_m":    ("INT", {"default": 400, "min": 5, "max": 2000}),
                 "filename_prefix": ("STRING", {"default": "phone_photo"}),
-                "quality": ("INT", {"default": 95, "min": 60, "max": 100}),
+                "quality":         ("INT", {"default": 95, "min": 60, "max": 100}),
             }
         }
 
-    def save(self, image, device_profile, gps_location, scene_profile, filename_prefix, quality):
+    def save(self, image, device_profile, gps_location, scene_profile, gps_radius_m, filename_prefix, quality):
         output_dir = os.path.join(folder_paths.get_output_directory(), "PowerMETADATA")
         os.makedirs(output_dir, exist_ok=True)
 
-        pil_img = _tensor_to_pil(image).convert("RGB")
-        exif_bytes = _build_exif(device_profile, gps_location, scene_profile)
+        batch_size = image.shape[0]
+        ts_base = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
 
-        ts = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-        filename = f"{filename_prefix}_{ts}.jpg"
-        out_path = os.path.join(output_dir, filename)
+        for i in range(batch_size):
+            pil_img = _inject_single(image[i], device_profile, gps_location, scene_profile, gps_radius_m, quality)
+            # Append index only when batch > 1 to keep single-image filenames clean
+            suffix = f"_{i+1:03d}" if batch_size > 1 else ""
+            filename = f"{filename_prefix}_{ts_base}{suffix}.jpg"
+            out_path = os.path.join(output_dir, filename)
+            pil_img.save(out_path, format="JPEG", quality=quality)
+            print(f"[Power METADATA] Saved ({i+1}/{batch_size}): {out_path}")
 
-        pil_img.save(out_path, format="JPEG", exif=exif_bytes, quality=quality)
-        print(f"[Power METADATA] Saved: {out_path}")
         return {}
 
 
 # ── Node 4: LoadAndStrip ──────────────────────────────────────────────────────
 
 class LoadAndStrip:
-    """Load an image tensor and strip ALL metadata from it."""
+    """
+    Strip ALL existing metadata from an image tensor (or batch) — clean slate.
+    Useful as a pre-processing step before injecting fresh EXIF.
+    """
 
     CATEGORY = "Power METADATA"
     RETURN_TYPES = ("IMAGE",)
@@ -274,24 +326,29 @@ class LoadAndStrip:
         }
 
     def load_strip(self, image):
-        pil_img = _tensor_to_pil(image).convert("RGB")
-        clean = Image.new("RGB", pil_img.size)
-        clean.paste(pil_img)
-        return (_pil_to_tensor(clean),)
+        import torch
+        frames = []
+        for i in range(image.shape[0]):
+            arr = (image[i].cpu().numpy() * 255).clip(0, 255).astype(np.uint8)
+            pil = Image.fromarray(arr).convert("RGB")
+            clean = Image.new("RGB", pil.size)
+            clean.paste(pil)
+            frames.append(_pil_to_tensor(clean))
+        return (torch.stack(frames),)
 
 
 # ── Mappings ──────────────────────────────────────────────────────────────────
 
 NODE_CLASS_MAPPINGS = {
     "DeviceProfileSelector": DeviceProfileSelector,
-    "MetadataInjector": MetadataInjector,
-    "SynthesizeAndSave": SynthesizeAndSave,
-    "LoadAndStrip": LoadAndStrip,
+    "MetadataInjector":      MetadataInjector,
+    "SynthesizeAndSave":     SynthesizeAndSave,
+    "LoadAndStrip":          LoadAndStrip,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "DeviceProfileSelector": "📱 Device Profile Selector",
-    "MetadataInjector": "🔧 Metadata Injector [chain → SaveImage]",
-    "SynthesizeAndSave": "💾 Synthesize & Save w/ Authentic Metadata",
-    "LoadAndStrip": "📂 Load & Strip Metadata",
+    "MetadataInjector":      "🔧 Metadata Injector [chain → SaveImage]",
+    "SynthesizeAndSave":     "💾 Synthesize & Save w/ Authentic Metadata",
+    "LoadAndStrip":          "📂 Load & Strip Metadata",
 }
